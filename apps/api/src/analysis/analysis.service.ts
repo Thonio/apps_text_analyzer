@@ -17,7 +17,7 @@ export class AnalysisService {
     const result: AnalyzeType = analyzer(text)
 
     // Persist result in database
-    this.prismaService.analysisResult.create({
+    await this.prismaService.analysisResult.create({
       data: {
         score: result.score,
         status: result.status,
@@ -29,7 +29,7 @@ export class AnalysisService {
   }
 
   async history(): Promise<AnalysisResult[]> {
-    return this.prismaService.analysisResult.findMany({
+    return await this.prismaService.analysisResult.findMany({
       orderBy: {
         createdAt: 'desc'
       }
