@@ -25,4 +25,5 @@
     "dev": "npm run dev --workspace=apps/api & npm run dev --workspace=apps/analyzer & npm run dev --workspace=apps/frontend",
     "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces"
+  }
 }
