@@ -2,9 +2,6 @@
   "name": "apps_text_analyzer",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Thonio/apps_text_analyzer.git"
@@ -25,4 +22,5 @@
     "dev": "npm run dev --workspace=apps/api & npm run dev --workspace=apps/analyzer & npm run dev --workspace=apps/frontend",
     "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces"
+  }
 }
