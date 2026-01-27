@@ -13,6 +13,7 @@ type ResponseApi = {
   status: string,
   score: number
 }
+type Historytype = { id: number; text: string; score: number; status: string }
 
 export default function App() {
   const [text, setText] = useState("");
@@ -20,9 +21,8 @@ export default function App() {
   const [apiError, setApiError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResponseApi | null>(null);
-  const [history, setHistory] = useState<
-    { id: number; text: string; score: number; status: string }[]
-  >([]);
+  const [history, setHistory] = useState<Historytype[]>([]);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const handleAnalyze = async () => {
     const validation = analyzeSchema.safeParse({ text });
@@ -89,6 +89,16 @@ export default function App() {
       );
     }
   };
+  const handleSelectHistory = (item: Historytype) => {
+    setSelectedId(item.id);
+    setText(item.text);
+    setResult({
+      status: item.status,
+      score: item.score
+    });
+    setError(null);
+    setApiError(null);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -150,6 +160,7 @@ export default function App() {
               {history.map((item) => (
                 <li
                   key={item.id}
+                  onClick={() => handleSelectHistory(item)}
                   className="cursor-pointer rounded-lg border border-gray-200 p-3 hover:bg-gray-50"
                 >
                   <p className="mb-1 text-xs text-gray-500">
