@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { AnalysisResult } from 'generated/prisma/client';
+import { PrismaService } from 'src/database/prisma.service';
 import { analyzer } from 'src/engine/analyzer';
 
 export interface AnalyzeType {
@@ -8,9 +10,29 @@ export interface AnalyzeType {
 
 @Injectable()
 export class AnalysisService {
-  analyze(text: string): AnalyzeType {
+  constructor(
+    private prismaService: PrismaService
+  ) { }
+  async analyze(text: string): Promise<AnalyzeType> {
     const result: AnalyzeType = analyzer(text)
 
+    // Persist result in database
+    this.prismaService.analysisResult.create({
+      data: {
+        score: result.score,
+        status: result.status,
+        text
+      }
+    })
+
     return result
+  }
+
+  async history(): Promise<AnalysisResult[]> {
+    return this.prismaService.analysisResult.findMany({
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
   }
 }

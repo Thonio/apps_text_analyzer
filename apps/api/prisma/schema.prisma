@@ -7,8 +7,17 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat = "cjs"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
+}
+
+model AnalysisResult {
+  id        String   @id @default(uuid())
+  text      String
+  score     Int
+  status    String
+  createdAt DateTime @default(now())
 }
