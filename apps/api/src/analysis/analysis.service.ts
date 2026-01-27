@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { analyzer } from 'src/engine/analyzer';
 
 export interface AnalyzeType {
   score: number
@@ -8,10 +9,8 @@ export interface AnalyzeType {
 @Injectable()
 export class AnalysisService {
   analyze(text: string): AnalyzeType {
+    const result: AnalyzeType = analyzer(text)
 
-    return {
-      score: 0,
-      status: text
-    }
+    return result
   }
 }
