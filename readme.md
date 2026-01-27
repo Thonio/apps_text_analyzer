@@ -40,4 +40,71 @@ L’architecture est volontairement découpée pour illustrer une séparation cl
 ```bash
 git clone <repo-url>
 cd <repo-name>
+```
 
+### 2️⃣ Installer les dépendances
+
+## Frontend
+
+```bash
+cd apps/frontend
+npm install
+```
+
+## API
+
+```bash
+cd apps/api
+npm install
+```
+
+### 🗄️ Base de données (SQLite + Prisma)
+
+L’application utilise SQLite en local.
+
+## 1️⃣ Créer le fichier .env dans api/
+
+```bash
+DATABASE_URL="file:./dev.db"
+```
+
+## 2️⃣ Générer le client Prisma
+```bash
+npx prisma generate
+```
+
+## 3️⃣ Appliquer les migrations
+```bash
+npx prisma migrate dev
+```
+
+Cela :
+
+crée la base dev.db
+
+applique le schéma
+
+rend l’API prête à écrire/lire des données
+
+## ▶️ Lancer l’application
+API (NestJS)
+
+Depuis api/ :
+```bash
+npm run start:dev
+```
+
+API disponible sur :
+
+`http://localhost:3000`
+
+Frontend (React)
+
+Depuis `frontend/` :
+```bash
+npm run dev
+```
+
+Frontend disponible sur :
+
+`http://localhost:5173`
