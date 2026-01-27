@@ -5,17 +5,6 @@ L’architecture est volontairement découpée pour illustrer une séparation cl
 
 ---
 
-## 🧱 Architecture
-
-/
-├── frontend/ # Application React (UI)
-├── api/ # API NestJS
-│ ├── prisma/ # Prisma schema + migrations
-│ └── src/
-├── analyzer/ # Module isolé d’analyse de texte (logique métier)
-└── README.md
-
-
 ### Rôles des briques
 
 - **Frontend (React)**  
