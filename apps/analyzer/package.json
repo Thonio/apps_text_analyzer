@@ -1,0 +1,21 @@
+{
+  "name": "analyzer",
+  "module": "index.ts",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "express": "^4.19.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "@types/bun": "latest"
+  }
+}
