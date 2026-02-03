@@ -5,12 +5,14 @@ import { AnalysisController } from './analysis/analysis.controller';
 import { AnalysisService } from './analysis/analysis.service';
 import { PrismaService } from './database/prisma.service';
 import { ConfigModule } from '@nestjs/config';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true
-    })
+    }),
+    HttpModule
   ],
   controllers: [AppController, AnalysisController],
   providers: [AppService, AnalysisService, PrismaService],

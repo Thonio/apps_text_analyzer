@@ -19,7 +19,8 @@
     "apps/analyzer"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=apps/api & npm run dev --workspace=apps/analyzer & npm run dev --workspace=apps/frontend",
+    "dev": "npm run dev --workspaces",
+    "start": "npm run start --workspaces",
     "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces"
   }
