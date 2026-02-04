@@ -95,6 +95,8 @@ rend l’API prête à écrire/lire des données
 
 ## ▶️ Lancer l’application
 
+### Microservice
+
 Depuis analyze/ :
 ```bash
 npm run dev
@@ -104,7 +106,7 @@ Microservice disponible sur :
 
 `http://localhost:4000`
 
-API (NestJS)
+### API (NestJS)
 
 Depuis api/ :
 ```bash
@@ -115,7 +117,7 @@ API disponible sur :
 
 `http://localhost:3000`
 
-Frontend (React)
+### Frontend (React)
 
 Depuis `frontend/` :
 ```bash
