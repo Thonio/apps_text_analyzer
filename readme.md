@@ -58,6 +58,13 @@ cd apps/api
 npm install
 ```
 
+## ANALYZE
+
+```bash
+cd apps/analyze
+npm install
+```
+
 ### 🗄️ Base de données (SQLite + Prisma)
 
 L’application utilise SQLite en local.
@@ -87,6 +94,16 @@ applique le schéma
 rend l’API prête à écrire/lire des données
 
 ## ▶️ Lancer l’application
+
+Depuis analyze/ :
+```bash
+npm run dev
+```
+
+Microservice disponible sur :
+
+`http://localhost:4000`
+
 API (NestJS)
 
 Depuis api/ :
